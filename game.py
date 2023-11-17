@@ -68,13 +68,13 @@ def handle_keys():
 
     keys = pygame.key.get_pressed()
     x, y = 0, 0
-    if keys[pygame.K_w]:
+    if keys[pygame.K_w] or keys[pygame.K_UP]:
         y = -1
-    if keys[pygame.K_s]:
+    if keys[pygame.K_s] or keys[pygame.K_DOWN]:
         y = 1
-    if keys[pygame.K_a]:
+    if keys[pygame.K_a] or keys[pygame.K_LEFT]:
         x = -1
-    if keys[pygame.K_d]:
+    if keys[pygame.K_d] or keys[pygame.K_RIGHT]:
         x = 1
 
     prev_direction = player.Direction
@@ -130,6 +130,7 @@ def handle_logic() -> bool:
 
     return True
 
+
 def restart_game():
     global player
     setup.generate_part_map()
@@ -162,8 +163,10 @@ def main():
 
     pygame.quit()
 
+
 def game_over():
     setup.snake_speed = 0
+
 
 if __name__ == "__main__":
     main()
