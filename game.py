@@ -130,15 +130,15 @@ def handle_logic() -> bool:
 
     return True
 
-# def restart():
-
-
-def main():
-    global player, apple
+def restart_game():
+    global player
     setup.generate_part_map()
     player = setup.Snake()
     generate_new_apple()
 
+
+def main():
+    restart_game()
     running = True
     while running:
         # poll for events
@@ -148,7 +148,7 @@ def main():
                 running = False
 
         if handle_logic() is False:
-            game_over()
+            restart_game()
 
         update_frame()
         handle_keys()

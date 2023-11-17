@@ -120,6 +120,8 @@ class Snake:
 
 def generate_part_map():
     # generate borders
+    global part_map
+    part_map = []
     part_map.extend([Part(i, 0, PT.BORDER) for i in range(0, WIDTH//SQUARE+1)])
     part_map.extend([Part(i, HEIGHT//SQUARE-1, PT.BORDER) for i in range(0, WIDTH//SQUARE+1)])
     part_map.extend([Part(0, j, PT.BORDER) for j in range(1, HEIGHT//SQUARE-1)])
